@@ -1,0 +1,19 @@
+#name{
+    margin-left: 5%;
+}
+#sn{
+    position: absolute;
+    float: left;
+    margin-left: 5%;
+}
+#imgdiv{
+    position: relative;
+    float: right;
+    width: 22%;
+    height: 30%;
+    margin-right: 5%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
