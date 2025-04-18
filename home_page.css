@@ -22,10 +22,6 @@ nav{
     color: #ffcc00;
 }
 
-.main{
-    height: 100vh;
-}
-
 .list{
     list-style: none;
     display: flex;
@@ -64,6 +60,10 @@ nav{
     font-weight: bold;
 }
 
+.main{
+    height: 100vh;
+}
+
 .table-div{
     height: 100vh;
     overflow-x: scroll;
@@ -71,7 +71,7 @@ nav{
 table{
     border-style: solid;
     border-collapse: collapse;
-    margin: 20px 20px 0 20px;
+    margin: 20px auto;
 }
 
 table .thead{
@@ -83,20 +83,27 @@ table td{
     border-style: solid;
     margin: 10px;
     text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+.scientficname{
+    text-decoration: none;
+    color: blue;
 }
 
 .link{
     text-decoration: none;
     color: black;
-    display: flex;
-    margin: 10px 0 15px 40px;
+    display: inline;
+    margin: auto 6px;
 }
 
 .delete_btn{
     border: none;
     background-color: white;
-    display: flex;
-    margin: 10px 0 15px 37px;
+    display: inline;
+    margin: auto;
     font-size: 16px;
     cursor: pointer;
 }

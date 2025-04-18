@@ -30,56 +30,47 @@
                 <a href="add.php" name="add_insect">Add New Insect</a>
             </li>
         </ul>
-        <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+        <form method="GET" class="searchform">
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>
+    <div class="main">
 
 
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 
 <?php
-
     if(isset($_GET['searchbox'])){
         $searchbox = $_GET['searchbox'];
-
     
     
     $sql2 = "SELECT catmaster.cname AS cname FROM catmaster JOIN trans ON catmaster.cid = trans.cid 
-            JOIN insectmaster ON trans.insid = insectmaster.id WHERE scientificName LIKE '%$searchbox' OR name LIKE '%$searchbox'";
+            JOIN insectmaster ON trans.insid = insectmaster.id WHERE scientificName LIKE '%$searchbox%' OR name LIKE '%$searchbox%'";
     $result2 = mysqli_query($conn,$sql2);
     $row2 = mysqli_fetch_assoc($result2);
     if(mysqli_num_rows($result2) > 0){
             $cn = $row2['cname'];
 }
 
-    $sql = "SELECT * FROM insectmaster WHERE scientificName = '$searchbox' OR name = '$searchbox'";
+    $sql = "SELECT * FROM insectmaster WHERE scientificName LIKE '%$searchbox%' OR name LIKE '%$searchbox%'";
     $result = mysqli_query($conn, $sql);
-        if(mysqli_num_rows( $result) > 0){
-            echo "<div class='info-div'>";
 
-            while($row = mysqli_fetch_assoc($result)){
-                echo "<img class='img' src = '$row[photo]' ><br>
-                    <div class='content'>
-                     <h1 class='name'>$row[scientificName]</h1><br>
-                      <p class ='sn' >Short Name: $row[name]</p><br>
-                      <p class ='cat' >Category: $cn</p><br>
-                      
-                      <p class = 'desc' >Description: $row[description]</p>
-                      </div>";
-            }
+        if(mysqli_num_rows($result) == 1){
+            $row = mysqli_fetch_assoc($result);
+            $insId = $row['id']; 
+            header("location:info.php?id=$insId&&cn=$cn");
         }else{
-            echo "No Data";
+            header("Location: list.php?searchbox=$searchbox");
         }
-        echo "</div>";
+
     }
 
 ?>
 
 <!-- ---------------------------------------------------------------------------------------------------------- -->
-
-<footer>
+</div>
+        <footer>
             <p>&copy; 2025 Insect DB. All rights reserved.</p>
         </footer>
 </body>

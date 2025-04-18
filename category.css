@@ -89,12 +89,13 @@ table td{
     text-align: center;
 }
 
-.table-div a{
+.catname{
     text-decoration: none;
-    color:black;
+    color: blue;
 }
 
 .link{
+    text-decoration: none;
     color: black;
     margin: 10px;
 }

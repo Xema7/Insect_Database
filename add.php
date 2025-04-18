@@ -78,7 +78,7 @@
             </li>
         </ul>
         <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>

@@ -1,4 +1,3 @@
-
 body{
     margin: 0;
     padding: 0;
@@ -61,65 +60,13 @@ nav{
     font-weight: bold;
 }
 
-.main{
+.form{
     height: 100vh;
-}
-
-.info-div{
-    padding: 20px 0 0 20px;
-    display: flex;
-    height: 100vh;
-}
-.img{
-    width: 20rem;
-    height: 20rem;
-    margin: 15px;
-}
-
-.name{
-    padding-left: 20px;
-}
-
-.sn{
-    padding-left: 20px;
-}
-
-.cat{
-    padding-left: 20px;
-}
-
-.desc{
-    padding-left: 20px;
-    text-wrap:inherit;
-}
-
-.table-div{
-    height: 100vh;
-    width: 100%;
-}
-table{
-    border-style: solid;
-    border-collapse: collapse;
-    margin: auto;
-    margin-top: 20px;
-    width: fit-content;
-}
-
-table .thead{
-    border-style: solid;
-    margin: 10px;
-}
-
-table td{
-    border-style: solid;
-    margin: 10px;
     text-align: center;
+    padding-top: 30px;
 }
 
-.table-div a{
-    text-decoration: none;
-    color:black;
-}
+
 
 footer{
     background-color: #2e2e2e;
@@ -128,4 +75,3 @@ footer{
     text-align: center;
     padding: 5px 0 0 15px;
 }
-

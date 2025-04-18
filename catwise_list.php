@@ -23,7 +23,7 @@
             </li>
         </ul>
         <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>
@@ -35,12 +35,13 @@
         include("connection.php");
     
     $category = $_GET['catid'];
+    $cname = $_GET['cname'];
+
 
     //get insid to use in sql4 query
     $sql3 = "SELECT insid FROM trans WHERE cid = '$category'";
         $result3 = mysqli_query($conn, $sql3);
 
-            $ins_id = array();
 
             if(mysqli_num_rows($result3) > 0){
                 while($row3 = mysqli_fetch_assoc($result3)){
@@ -57,15 +58,15 @@
                     echo "<div class='table-div'>
                           <table>
                           <tr class='thead'>
-                          <td style='width: 28%;'>Insect Image</td>
-                          <td style='width: 28%;'>Full Name</td>
-                          <td style='width: 28%;'>Short Name</td>
-                          <td style='width: 15%;'>Operations</td>
+                          <td>Insect Image</td>
+                          <td>Full Name</td>
+                          <td>Short Name</td>
+                          <td>Operations</td>
                           </tr>";
                 while($row4 = mysqli_fetch_assoc($result4)){
                     echo "<tr>
-                          <td><img src='".$row4['photo']."' style='width: 100px; height: 100px;'></td>
-                          <td>".$row4['scientificName']."</td>
+                          <td><img src='".$row4['photo']."' style='width: 20px; height: 20px;'></td>
+                          <td><a class='scientficname' href='info.php?id=$row4[id]&cn=$cname'>".$row4['scientificName']."</a></td>
                           <td>".$row4['name']."</td>
                           <td><a class='link' href='edit.php?insectdata=$row4[id]'>Update</a>
                           <button class='delete_btn' onclick='confirmDelete({$row4['id']})'>Delete</button></td>

@@ -29,7 +29,7 @@
             </li>
         </ul>
         <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>
@@ -51,14 +51,12 @@
         echo "<div class='table-div'>
              <table >
               <tr>
-              <td>Category ID</td>
               <td>Category Name</td>
               <td>Operation</td>
               </tr>";
         while($row = mysqli_fetch_assoc($result)){
             echo "<tr>
-                  <td>".$row['cid']."</td>
-                  <td><a href='catwise_list.php?catid=$row[cid]' name='catwise_list'>".$row['cname']."</a></td>
+                  <td><a class='catname' href='catwise_list.php?catid=$row[cid]&cname=$row[cname]' name='catwise_list'>".$row['cname']."</a></td>
                   <td><a class='link' href = 'edit_category.php?categorydata=$row[cid]'>Update</a>
                   <button class='delete_btn' onclick = 'confirmDelete({$row['cid']})'>Delete</button></td>
                   </tr>";

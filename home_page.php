@@ -30,7 +30,7 @@
             </li>
         </ul>
         <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>
@@ -48,11 +48,11 @@
                 echo "<div class='table-div'>
                 <table>
                 <tr class='thead'>
-                <td style='width: 7%;'>Insect Image</td>
-                <td style='width: 20%;'>Full Name</td>
-                <td style='width: 20%;'>Short Name</td>
-                <td style='width: 20%;'>Category</td>
-                <td style='width: 8%;'>Operations</td>
+                <td>Image</td>
+                <td>Full Name</td>
+                <td>Short Name</td>
+                <td>Category</td>
+                <td>Operations</td>
                 </tr>";
             while($row1 = mysqli_fetch_assoc($result1)){
 
@@ -63,8 +63,8 @@
                         while($row2 = mysqli_fetch_assoc($result2)){                
                 
                     echo "<tr>
-                      <td><img src='".$row1['photo']."' style='width: 100px; height: 100px;'></td>
-                      <td>".$row1['scientificName']."</td>
+                      <td><img src='".$row1['photo']."' style='width: 20px; height: 20px;'></td>
+                      <td><a class='scientficname' href='info.php?id=$row1[id]&cn=$row2[cname]'> ".$row1['scientificName']."</a></td>
                       <td>".$row1['name']."</td>
                       <td>".$row2['cname']."</td>
                       <td><a class='link' href='edit.php?insectdata=$row1[id]'>Update</a>
@@ -106,7 +106,6 @@
             function deleteRow(){
                 if(deleteId !== null){
                     window.location.href = `delete.php?id=${deleteId}`;
-                    // window.location.href = 'delete.php?insectdata=$row1[id]';
                 }
             }
         </script>

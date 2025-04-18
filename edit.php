@@ -7,7 +7,6 @@
     $result1 = mysqli_query($conn,$sql1);
     $total1 = mysqli_num_rows($result1);
     $row1 = mysqli_fetch_assoc($result1); 
-    echo "$row1[id]";
 
     //get insect category to update page
     $sql2 = "SELECT catmaster.cname AS cn,catmaster.cid AS ci FROM catmaster 
@@ -46,7 +45,7 @@
             </li>
         </ul>
         <form method="GET" action="search.php" class="searchform">
-            <input type="text" name="searchbox" required>
+            <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="search">Search</button>
         </form>
     </nav>
